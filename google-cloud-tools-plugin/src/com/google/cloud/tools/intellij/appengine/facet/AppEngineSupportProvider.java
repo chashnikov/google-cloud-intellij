@@ -143,14 +143,11 @@ public class AppEngineSupportProvider extends FrameworkSupportInModuleProvider {
       }
     }
 
-    final Project project = module.getProject();
-    webIntegration.addDevServerToModuleDependencies(rootModel);
-
     final Library apiJar = addProjectLibrary(module, "AppEngine API",
         sdkService.getUserLibraryPaths(),
         VirtualFile.EMPTY_ARRAY);
     rootModel.addLibraryEntry(apiJar);
-    webIntegration.addLibraryToArtifact(apiJar, webArtifact, project);
+    webIntegration.addLibraryToArtifact(apiJar, webArtifact, module.getProject());
   }
 
   @NotNull
